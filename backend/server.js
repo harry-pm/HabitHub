@@ -12,14 +12,8 @@ mongoose.connect('mongodb://127.0.0.1:27017/Habits', { useNewUrlParser: true });
 const connection = mongoose.connection;
 
 connection.once('open', function() {
-    console.log("MongoDB database connection established successfully")
+    console.log("MongoDB database connection established successfully");
 })
-
-//get one record
-
-//save new user
-
-//get one user
 
 app.listen(PORT, function() {
     console.log("Server is running on Port: " + PORT);
