@@ -1,68 +1,60 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Habit Tracker
+Brief
+Users should be able to login
+Users should be able to choose a habit they want to track (e.g water, exercise, 8 hours of sleep) and choose the frequency at which they want to track the habit.
+Users should be able to track a habit and mark it as complete for the day.
+Users should be able to see if they have completed a habit for the day and see if they have a streak of completing their habits.
+Your website should have the following technical functionality:
+Developers should host a database to store the daily information about users locally.
 
-## Available Scripts
+Project 
+Names
+Habit Hub
+Habits repeat once per day
+Frequency - how many times a day
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+User stories (MVP)
+As a user, I want to be able to enter a username/password, so I can login
+As a new user, I want to be able to sign up, so I have an account
+As a user, I want be able to add a habit, so it can be tracked
+As a user, I want to toggle the progress of a habit, so my progress is tracked
+As a user, I want to view my streak, so I know how long I have been keeping it up
+User Stories (Extra)
+As a user, I want to know if my login was incorrect, so I re enter my credentials
+As a user, I want to be able to remove a habit, so I can stop a habit
+As a user, I want to be able to choose how I track my habit, so I can tailor it to habit
+Technology
+Mongodb
+Node Js
+Javascript
+Express
+React
+Data Object
+Record
+User:
+Username
+Password
+Habit Array
+Name
+Streak
+Completed Array
+Database
+Single record storing both Users and habits
+MVP
+Pages
+Login Page
+Habits page to view and add
+Create User Page
+Express routes
+Set up Mongodb
+Seeding
+Routes
+Stretch Goals
+Extra Page
+Category habit
+How to track your habit
+Color coding habits
+How does the habit repeat
+Handling login errors
+Multistage habit
+Choose pre setup habits
