@@ -9,4 +9,5 @@ export default function Register() {
                 <input type="submit"></input>
             </form>
         </div>
+    )
 }
