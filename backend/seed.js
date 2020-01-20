@@ -1,6 +1,7 @@
 const { Record, Habit, User } = require('./models/habits.model');
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://127.0.0.1:27017/Habits', { useNewUrlParser: true });
+const connection = mongoose.connection;
 
 const recordsData = [
     {
@@ -19,6 +20,9 @@ const recordsData = [
 ]
 
 const seedData = () => {
+    connection.collections['records'].drop((err)=>{
+        //collection cleared
+    })
     for (let recordData of recordsData) {
         let habits = [];
         for(recordHabit of recordData.habits)
@@ -28,7 +32,7 @@ const seedData = () => {
         record.save((err)=> {
             if(err)
                 console.log(err)
-            console.log('saved')
+            //data saved
         })
     }
 }
