@@ -15,12 +15,18 @@ class App extends React.Component {
 
   state = {
     loggedIn : false,
-    user: [],
+    users: [],
     habits: []
   }
 
+  //axios function to fetch users data. this will setstate(users) to an array
+
+
   // function to verify username and password (verify) to be added below
-  
+  verifyUser = (username, password) => {
+    //for loop to check username is in this.state.users
+    //if statements... 
+  }
   // function to add habit
 
   render () {
