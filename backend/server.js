@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const PORT = 4000;
+const seedData = require("./seed.js");
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -15,6 +16,11 @@ connection.once('open', function() {
     console.log("MongoDB database connection established successfully")
 })
 
+//seed data
+app.get('/seed', (req, res) => {
+    seedData();
+    res.send("Data seeded.");
+})
 //get one record
 
 //save new user
