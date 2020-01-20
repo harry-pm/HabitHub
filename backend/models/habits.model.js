@@ -30,4 +30,7 @@ let recordSchema = new schema({
     habits: [habitSchema]
 });
 
-module.exports = mongoose.model("Record", recordSchema)
+module.exports = {
+    Record: mongoose.model("Record", recordSchema), 
+    Habit: mongoose.model("Habit", habitSchema),
+    User: mongoose.model("User", userSchema)}
