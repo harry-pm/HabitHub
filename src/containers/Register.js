@@ -1,11 +1,12 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-export default class Register extends Component {
-    render() {
-        return (
-            <div>
-                <p>register container </p>
-            </div>
-        )
-    }
+export default function Register() {
+    return (
+        <div>
+            <form>
+                <input type="text" name="username" placeholder="Choose a username..."></input>
+                <input type="text" name="password" placeholder="Choose a password..."></input>
+                <input type="submit"></input>
+            </form>
+        </div>
 }
