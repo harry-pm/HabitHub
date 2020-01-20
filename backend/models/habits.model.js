@@ -19,6 +19,9 @@ let habitSchema = new schema({
     },
     streak: {
         type: Number
+    },
+    lastCompleted : {
+        type: Date
     }
 })
 
