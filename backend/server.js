@@ -19,9 +19,10 @@ app.get('/seed', (req, res) => {
 })
 
 // Get all users
-app.get("/allUsers", (req, res) => {
-    let users = readAllUsers();
-    res.json(users);
+app.get("/getAllUsers", (req, res) => {
+    readAllUsers().then((response,err) => {
+        res.json(response);
+    })
 });
 
 //get one record

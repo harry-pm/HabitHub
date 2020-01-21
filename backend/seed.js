@@ -5,14 +5,14 @@ const recordsData = [
     {
         user: {username: 'juicey', password: 'yusey'},
         habits: [
-            {name: "washing", streak: 3, completed: [true], lastCompleted: 19/01/2020},
-            {name: "pushups", streak: 100, completed: [true, true, false], lastCompleted: 19/01/2020}
+            {name: "washing", streak: 3, completed: [true], lastCompleted: 2020/01/19},
+            {name: "pushups", streak: 100, completed: [true, true, false], lastCompleted: 2020/01/19}
         ]
     },
     {
         user: {username: "jtrigger", password: "glock"},
         habits: [
-            {name: "eating", streak: 0, completed: [false], lastCompleted: 02/03/1996}
+            {name: "eating", streak: 0, completed: [false], lastCompleted: 1996/03/25}
         ]
     }
 ]
