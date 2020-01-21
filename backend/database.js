@@ -1,4 +1,4 @@
-const { Habit, User } = require('./models/habits.model');
+const { Habit, User } = require('./habits.model');
 const db = require('./databaseConfig.js');
 
 // read all users
