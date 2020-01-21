@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const PORT = 4000;
 const seedData = require("./seed.js");
-const { readAllUsers,  readUser, addUser } = require("./database.js");
+const { readAllUsers,  readUser, addUser, addHabit } = require("./database.js");
 app.use(cors());
 app.use(bodyParser.json());
 
@@ -51,6 +51,15 @@ app.post("/addUser", (req,res) => {
     
 })
 //add one habit
+app.post("/addHabit/:id", (req,res)=> {
+    let id = req.params.id;
+    let name = req.body.name;
+    let completed = req.body.completed;
+    let streak = req.body.streak;
+    let lastCompleted = req.body.lastCompleted;
+    console.log(id, name, completed, streak,lastCompleted)
+    res.send(addHabit(id, name,completed,streak,lastCompleted))
+})
 
 //update habit completed
 
