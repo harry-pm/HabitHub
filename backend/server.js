@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const PORT = 4000;
 const seedData = require("./seed.js");
-const { readAllUsers } = require("./database.js");
+const { readAllRecords,  readUser } = require("./database.js");
 app.use(cors());
 app.use(bodyParser.json());
 
@@ -18,18 +18,42 @@ app.get('/seed', (req, res) => {
     res.send("Data seeded.");
 })
 
-// Get all users
-app.get("/getAllUsers", (req, res) => {
-    readAllUsers().then((response,err) => {
+
+//Get all records
+app.get("/readAllRecords", (req, res) => {
+    readAllRecords().then((response,err) => {
         res.json(response);
     })
 });
 
-//get one record
+// Get all users
+app.get("/readAllUsers", (req, res) => {
+    readAllRecords().then((response,err) => {
+        users = []
+        response.map(record => {
+            users.push(record.user)
+        })
+        res.json(users);
+    })
+});
 
-//save new user
+//get one users habits
+app.get("/readUserHabits/:id", (req,res) => {
+    let id = req.params.id;
+    readUser(id).then((response,err)=>{
+        res.json(response.habits)
+    })
+    .catch(err => { 
+        res.json(err)
+    })
 
-//get one user
+})
+
+//add new user
+
+//add one habit
+
+
 
 app.listen(PORT, function() {
     console.log("Server is running on Port: " + PORT);
