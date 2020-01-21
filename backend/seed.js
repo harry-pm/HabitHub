@@ -8,15 +8,15 @@ const usersData = [
         username: 'juicey',
         password: 'yusey',
         habits: [
-            {name: "washing", streak: 3, completed: [true], lastCompleted: 2020/01/19},
-            {name: "pushups", streak: 100, completed: [true, true, false], lastCompleted: 2020/01/19}
+            {name: "washing", streak: 3, completed: [true], lastCompleted: "2020-01-19"},
+            {name: "pushups", streak: 100, completed: [true, true, false], lastCompleted: "2020-01-19"}
         ]
     },
     {
         username: "jtrigger",
         password: "glock",
         habits: [
-            {name: "eating", streak: 0, completed: [false], lastCompleted: 1996/03/25}
+            {name: "eating", streak: 0, completed: [false], lastCompleted: "1996-03-25"}
         ]
     }
 ]

@@ -17,15 +17,14 @@ const readUser = (id) => {
 
 const addUser = (username, password) => {
     //return what is sent for testing later
-    let user = new User({username:username, password:password })
-    let record = new Record({user: user, habits:null})
-    record.save((err,data) => {
+    let user = new User({username:username, password:password, habits: null })
+    user.save((err,data) => {
         if(err)
             console.log(err)
         //data saved
         console.log(err)
     })
-    return record
+    return user
 
 
 }
