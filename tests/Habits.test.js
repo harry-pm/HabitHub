@@ -13,19 +13,27 @@ describe('Habits', () => {
   });
 
   it('sets state to users habits', () => {
-      const dummyData = [{
-        name: "washing",
-        streak: 3,
-        completed: [true],
-        lastCompleted: "19 / 01 / 2020"
-    },
-    {
-        name: "pushups",
-        streak: 100,
-        completed: [true, true, false],
-        lastCompleted: "19 / 01 / 2020"
-    }
-    ]   
+      const dummyData = [
+        {
+          "completed": [
+            true
+          ],
+          "_id": "5e26e0397bd56f3754ed6d19",
+          "name": "washing",
+          "streak": 3,
+          "lastCompleted": "2020-01-19T00:00:00.000Z"
+        },
+        {
+          "completed": [
+            true,
+            true,
+            false
+          ],
+          "_id": "5e26e0397bd56f3754ed6d1a",
+          "name": "pushups",
+          "streak": 100,
+          "lastCompleted": "2020-01-19T00:00:00.000Z"
+        }]   
       const wrapper = mount(<Habits />)
       const instance = wrapper.instance();
       wrapper.setProps({ habits: dummyData});

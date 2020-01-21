@@ -16,7 +16,7 @@ class App extends React.Component {
   state = {
     loggedIn: false,
     users: [],
-    habits: []
+    userHabits: []
   }
 
   //axios function to fetch users data. this will setstate(users) to an array

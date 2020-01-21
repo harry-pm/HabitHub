@@ -1,10 +1,14 @@
 import React from 'react'
 
-export default function List() {
+export default function List(props) {
     return (
-        <div>
-            {/* display habit data if it exists  */}
-            <p>List</p>
+        <div className="habitsList">
+         {props.habits && props.habits.map(habits => {
+            return (
+            <div className="habit">
+                <p>{habits.name}</p>
+            </div>)}  
+            )}
         </div>
     )
 }
