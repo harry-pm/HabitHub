@@ -1,15 +1,6 @@
 const mongoose = require('mongoose');
 const schema = mongoose.Schema;
 
-let userSchema = new schema({
-    username: {
-        type: String
-    },
-    password: {
-        type: String
-    }
-})
-
 let habitSchema = new schema({
     name: {
         type: String
@@ -25,12 +16,18 @@ let habitSchema = new schema({
     }
 })
 
-let recordSchema = new schema({
-    user: userSchema,
+let userSchema = new schema({
+    username: {
+        type: String
+    },
+    password: {
+        type: String
+    },
     habits: [habitSchema]
-});
+})
+
+
 
 module.exports = {
-    Record: mongoose.model("Record", recordSchema), 
     Habit: mongoose.model("Habit", habitSchema),
     User: mongoose.model("User", userSchema)}

@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const PORT = 4000;
 const seedData = require("./seed.js");
-const { readAllRecords,  readUser, addUser } = require("./database.js");
+const { readAllUsers,  readUser, addUser } = require("./database.js");
 app.use(cors());
 app.use(bodyParser.json());
 
@@ -19,21 +19,10 @@ app.get('/seed', (req, res) => {
 })
 
 
-//Get all records
-app.get("/readAllRecords", (req, res) => {
-    readAllRecords().then((response,err) => {
-        res.json(response);
-    })
-});
-
 // Get all users
 app.get("/readAllUsers", (req, res) => {
-    readAllRecords().then((response,err) => {
-        users = []
-        response.map(record => {
-            users.push(record.user)
-        })
-        res.json(users);
+    readAllUsers().then((response,err) => {
+        res.json(response);
     })
 });
 

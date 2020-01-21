@@ -1,16 +1,16 @@
-const { Record, Habit, User } = require('./models/habits.model');
+const { Habit, User } = require('./models/habits.model');
 const db = require('./databaseConfig.js');
 
-// read all records
-const readAllRecords =  () => {
-    return Record.find({}, (err, records) => {
+// read all users
+const readAllUsers =  () => {
+    return User.find({}, (err, records) => {
         // console.log(records);
     });
 }
 
 //read one user by id
 const readUser = (id) => {
-    return Record.findOne({"user._id" : id}, (err, user) => {
+    return User.findOne({"_id" : id}, (err, user) => {
         // console.log(user)
     })
 }
@@ -31,4 +31,4 @@ const addUser = (username, password) => {
 }
 
 
-module.exports = { readAllRecords, readUser, addUser };
+module.exports = { readAllUsers, readUser, addUser };

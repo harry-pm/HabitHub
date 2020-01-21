@@ -1,16 +1,20 @@
-const { Record, Habit, User } = require('./models/habits.model');
+const { Habit, User } = require('./models/habits.model');
 const db = require('./databaseConfig.js');
 
-const recordsData = [
+
+//dates are weird
+const usersData = [
     {
-        user: {username: 'juicey', password: 'yusey'},
+        username: 'juicey',
+        password: 'yusey',
         habits: [
             {name: "washing", streak: 3, completed: [true], lastCompleted: 2020/01/19},
             {name: "pushups", streak: 100, completed: [true, true, false], lastCompleted: 2020/01/19}
         ]
     },
     {
-        user: {username: "jtrigger", password: "glock"},
+        username: "jtrigger",
+        password: "glock",
         habits: [
             {name: "eating", streak: 0, completed: [false], lastCompleted: 1996/03/25}
         ]
@@ -18,16 +22,19 @@ const recordsData = [
 ]
 
 const seedData = () => {
-    db.collections['records'].drop((err)=>{
-        //collection cleared
+    //clear db
+    db.collections['users'].drop((err)=>{
     })
-    for (let recordData of recordsData) {
+    for (let userData of usersData) {
         let habits = [];
-        for(recordHabit of recordData.habits)
-            habits.push(new Habit(recordHabit))
-        let user = new User(recordData.user)
-        let record = new Record({user:user, habits:habits})
-        record.save((err)=> {
+        for(habit of userData.habits)
+            habits.push(new Habit(habit))
+        let user = new User({
+            username : userData.username,
+            password: userData.password,
+            habits: habits
+        })
+        user.save((err)=> {
             if(err)
                 console.log(err)
             //data saved
