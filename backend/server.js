@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const PORT = 4000;
 const seedData = require("./seed.js");
-const { readAllRecords,  readUser } = require("./database.js");
+const { readAllRecords,  readUser, addUser } = require("./database.js");
 app.use(cors());
 app.use(bodyParser.json());
 
@@ -50,9 +50,19 @@ app.get("/readUserHabits/:id", (req,res) => {
 })
 
 //add new user
-
+app.post("/addUser", (req,res) => {
+    let username = req.body.username;
+    let password = req.body.password;
+    console.log(username,password)
+    //validation?
+    res.send(addUser(username,password))
+    
+})
 //add one habit
 
+//update habit completed
+
+//remove habit
 
 
 app.listen(PORT, function() {
