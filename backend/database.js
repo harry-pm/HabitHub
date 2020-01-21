@@ -46,9 +46,22 @@ const addHabit = (id, name, completed, streak, lastCompleted) => {
             // console.log(data)
         })
     })
-    
-
 }
 
+const updateCompleted = (userId, habitId, completed) => {
 
-module.exports = { readAllUsers, readUser, addUser, addHabit };
+    User.findById(userId, (err, user) => {
+        if(err)
+            console.log(err)
+        user.habits.map(habit => {
+            if (String(habit._id) === habitId)
+                habit.completed = completed
+        })
+        user.save((err,data) => {
+            if(err)
+                console.log(err)
+        })
+    })
+}
+
+module.exports = { readAllUsers, readUser, addUser, addHabit, updateCompleted };
