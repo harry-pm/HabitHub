@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Habits from '../src/containers/Habits';
-import { mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import { expect } from 'chai';
 
 describe('Habits', () => {
@@ -34,7 +34,7 @@ describe('Habits', () => {
           "streak": 100,
           "lastCompleted": "2020-01-19T00:00:00.000Z"
         }]   
-      const wrapper = mount(<Habits />)
+      const wrapper = shallow(<Habits />)
       const instance = wrapper.instance();
       wrapper.setProps({ habits: dummyData});
       instance.setHabits();
