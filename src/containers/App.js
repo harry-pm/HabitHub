@@ -14,19 +14,20 @@ import Habits from '../containers/Habits';
 class App extends React.Component {
 
   state = {
-    loggedIn : false,
+    loggedIn: false,
     users: [],
     habits: []
   }
 
   //axios function to fetch users data. this will setstate(users) to an array
 
-
-  // function to verify username and password (verify) to be added below
   verifyUser = (username, password) => {
-    //for loop to check username is in this.state.users
-    //if statements... 
-  }
+    this.state.users.map(user => {
+      if (user.username === username && user.password === password) {
+        this.setState({ loggedIn: true })}
+      })
+  }  
+
   // function to add habit
 
   render () {

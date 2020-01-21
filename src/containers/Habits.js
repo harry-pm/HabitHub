@@ -11,6 +11,10 @@ export default class Habits extends Component {
     }
 
     // function to setstate equal to the habits prop passed down 
+    setHabits (props) {
+        this.setState({ userHabits: [...this.state.userHabits, props]})
+    }
+
 
     // function to assign streak
 
