@@ -22,12 +22,12 @@ const addUser = (username, password) => {
      
 }
 
-const addHabit = (id, name, completed, streak, lastCompleted) => {
+const addHabit = (id, name, completed) => {
     let habit = new Habit({
         name : name,
         completed: completed,
-        streak : streak,
-        lastCompleted : lastCompleted
+        streak : 0,
+        lastCompleted : null
     })
     User.findById(id,(err,user)=>{
         if(err)

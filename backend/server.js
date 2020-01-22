@@ -60,10 +60,8 @@ app.post("/addHabit/:id", (req,res)=> {
     let id = req.params.id;
     let name = req.body.name;
     let completed = req.body.completed;
-    let streak = req.body.streak;
-    let lastCompleted = req.body.lastCompleted;
-    console.log(id, name, completed, streak,lastCompleted)
-    res.send(addHabit(id, name,completed,streak,lastCompleted))
+    console.log(id, name, completed)
+    res.send(addHabit(id, name,completed))
 })
 
 //update habit completed

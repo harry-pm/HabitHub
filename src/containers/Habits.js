@@ -19,7 +19,7 @@ export default class Habits extends Component {
     render() {
         return (
             <div>
-                <Add />
+                <Add addHabit = {this.props.addHabit}/>
                 <List habits={this.props.userHabits}/>
             </div>
         )
