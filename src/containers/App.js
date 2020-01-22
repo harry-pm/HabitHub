@@ -70,9 +70,9 @@ class App extends React.Component {
         console.log(username,password)
         console.log("valid user")
         this.setState({currentUser : user})
-        this.setState({ loggedIn: true })}
+        this.setState({ loggedIn: true })
         this.getHabits(user._id)
-        
+        }
         //redirect to habits
         // this.props.history.push('/habits')
 
