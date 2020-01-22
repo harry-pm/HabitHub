@@ -3,7 +3,8 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
+  Redirect
 } from 'react-router-dom';
 import '../App.css';
 import Register from './Register';
@@ -68,7 +69,7 @@ class App extends React.Component {
         this.setState({ loggedIn: true })}
         this.getHabits(user._id)
         //redirect to habits
-        this.props.history.push('/habits')
+        // this.props.history.push('/habits')
 
       })
   }  
@@ -87,7 +88,7 @@ class App extends React.Component {
               handleUsername={this.handleUsername}
               handlePassword={this.handlePassword}/>
               {/* verify function */}
-              {/* {loggedIn && <p>Welcome <P>} */}
+                {this.state.loggedIn && <Redirect to="/habits" />}
             </Route>
             <Route path="/register">
               <Register /> 

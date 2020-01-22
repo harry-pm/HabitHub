@@ -82,4 +82,4 @@ const updateHabit = (userId, habitId, updatedHabit) => {
     })
 }
 
-module.exports = { readAllUsers, readUser, addUser, addHabit, updateCompleted };
+module.exports = { readAllUsers, readUser, addUser, addHabit, updateCompleted, updateHabit };
