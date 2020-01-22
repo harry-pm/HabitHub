@@ -1,11 +1,12 @@
-import React from 'react'
+import React from 'react';
+import Habit from './Habit';
 
 export default function List(props) {
     return (
         <div className="habitsList">
          {props.habits.length > 0 && props.habits.map((habit, id) => (
             <div key={id} >
-                <p className="habit">{habit.name}</p>
+                <Habit habit={habit}/>
             </div>)  
             )}
         </div>

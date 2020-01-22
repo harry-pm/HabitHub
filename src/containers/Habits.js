@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Streak from '../components/Streak';
 import Add from '../components/Add';
 import List from '../components/List';
 
@@ -20,7 +19,6 @@ export default class Habits extends Component {
     render() {
         return (
             <div>
-                <Streak />
                 <Add />
                 <List habits={this.props.userHabits}/>
             </div>
