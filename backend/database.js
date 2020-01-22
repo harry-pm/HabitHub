@@ -16,15 +16,10 @@ const readUser = (id) => {
 }
 
 const addUser = (username, password) => {
-    //return what is sent for testing later
-    let user = new User({username:username, password:password, habits: [] })
-    user.save((err,data) => {
-        if(err)
-            console.log(err)
-        //data saved
-        console.log(data)
-    })
-    return user
+    //return what is sent for testing late
+        let user = new User({username:username, password:password, habits: [] })
+        return user.save()
+     
 }
 
 const addHabit = (id, name, completed, streak, lastCompleted) => {

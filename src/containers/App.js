@@ -48,8 +48,8 @@ class App extends React.Component {
     )
   }
 
-  componentDidMount(){
-  }
+  // componentDidMount(){
+  // }
 
   handleUsername = (e) => {
     this.setState({login : {...this.state.login, username :  e.target.value} })
@@ -57,7 +57,7 @@ class App extends React.Component {
   handlePassword = (e) => {
     this.setState({login : {...this.state.login, password : e.target.value}})
   }
-  handleSubmit = (e) =>{
+  handleLogin = (e) =>{
     e.preventDefault();
     this.getUsers(); 
   }
@@ -84,7 +84,7 @@ class App extends React.Component {
             <Route exact path="/">
               <Link to="/register">Create Account</Link>
               <Login 
-              handleSubmit={this.handleSubmit}
+              handleLogin={this.handleLogin}
               handleUsername={this.handleUsername}
               handlePassword={this.handlePassword}/>
               {/* verify function */}
@@ -94,7 +94,8 @@ class App extends React.Component {
               <Register /> 
             </Route>
             <Route path="/habits">
-              <Habits />
+              <Habits userHabits = {this.state.userHabits} />
+              {!this.state.loggedIn && <Redirect to="/" />}
               {/* if loggedIn === true, render Habits component and pass down user and habits */}
             </Route>
           </Switch>

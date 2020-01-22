@@ -13,6 +13,7 @@ export default function Add() {
                     <option value="3">3</option>
                     <option value="4">4</option>
                 </select>
+                <input type="submit" value="Add to list"></input>
             </form>
         </div>
     )

@@ -6,28 +6,7 @@ import List from '../components/List';
 export default class Habits extends Component {
 
     state = {
-        userHabits: [
-    {
-      "completed": [
-        true
-      ],
-    "_id": "5e26e0397bd56f3754ed6d19",
-    "name": "washing",
-    "streak": 3,
-    "lastCompleted": "2020-01-19T00:00:00.000Z"
-  },
-  {
-    "completed": [
-      true,
-      true,
-      false
-    ],
-    "_id": "5e26e0397bd56f3754ed6d1a",
-    "name": "pushups",
-    "streak": 100,
-    "lastCompleted": "2020-01-19T00:00:00.000Z"
-  }],
-        streak: ''
+        userHabits: []
     }
 
     // function to setstate equal to the habits prop passed down 
@@ -43,7 +22,7 @@ export default class Habits extends Component {
             <div>
                 <Streak />
                 <Add />
-                <List habits={this.state.userHabits}/>
+                <List habits={this.props.userHabits}/>
             </div>
         )
     }

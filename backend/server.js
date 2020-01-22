@@ -45,9 +45,14 @@ app.get("/readUserHabits/:id", (req,res) => {
 app.post("/addUser", (req,res) => {
     let username = req.body.username;
     let password = req.body.password;
-    console.log(username,password)
+    
     //validation?
-    res.send(addUser(username,password))
+    addUser(username,password).then(data=> {
+        res.send({success: true})
+    }).catch(err => {
+        res.send({success: false})
+    }) 
+    
     
 })
 //add one habit

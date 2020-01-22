@@ -27,7 +27,7 @@ const seedData = () => {
     })
     for (let userData of usersData) {
         let habits = [];
-        for(habit of userData.habits)
+        for(let habit of userData.habits)
             habits.push(new Habit(habit))
         let user = new User({
             username : userData.username,
