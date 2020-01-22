@@ -24,7 +24,7 @@ const usersData = [
 const seedData = () => {
     //clear db
     db.collections['users'].drop((err)=>{
-    })
+    
     for (let userData of usersData) {
         let habits = [];
         for(let habit of userData.habits)
@@ -40,6 +40,7 @@ const seedData = () => {
             //data saved
         })
     }
+})
 }
 
 module.exports = seedData;

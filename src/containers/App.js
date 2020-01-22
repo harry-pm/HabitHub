@@ -19,7 +19,6 @@ class App extends React.Component {
 
   state = {
     loggedIn: false,
-    users: [],
     userHabits: [],
     login: {
       username: "",
@@ -44,7 +43,9 @@ class App extends React.Component {
   }
 
   getHabits = (id) => {
-    axios.get(apiUrl + '/readUserHabits/'+this.state.currentUser._id).then((res,err) =>{  this.setState({userHabits: res.data})}
+    axios.get(apiUrl + '/readUserHabits/' + id).then((res,err) =>{  
+      console.log("Get habits")
+      this.setState({userHabits: res.data})}
     )
   }
 
@@ -65,14 +66,25 @@ class App extends React.Component {
   verifyUser = (username, password, users) => {
       users.map(user => {
       if (user.username === username && user.password === password) {
+        console.log(user.username, user.password)
+        console.log(username,password)
+        console.log("valid user")
         this.setState({currentUser : user})
         this.setState({ loggedIn: true })}
         this.getHabits(user._id)
+        
         //redirect to habits
         // this.props.history.push('/habits')
 
       })
-  }  
+  }
+  
+  addHabit = (name, completed) => {
+    axios.post(apiUrl + "/addHabit/" + this.state.currentUser._id, { name: name, completed: completed})
+    .then(() => {
+      this.getHabits(this.state.currentUser._id)
+    })
+  }
 
   // function to add habit
 
@@ -94,7 +106,10 @@ class App extends React.Component {
               <Register /> 
             </Route>
             <Route path="/habits">
-              <Habits userHabits = {this.state.userHabits} />
+              <Habits 
+                userHabits = {this.state.userHabits}
+                addHabit = {this.addHabit}
+              />
               {!this.state.loggedIn && <Redirect to="/" />}
               {/* if loggedIn === true, render Habits component and pass down user and habits */}
             </Route>
