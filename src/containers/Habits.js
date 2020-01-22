@@ -20,7 +20,10 @@ export default class Habits extends Component {
         return (
             <div>
                 <Add addHabit = {this.props.addHabit}/>
-                <List habits={this.props.userHabits}/>
+                <List 
+                habits={this.props.userHabits}
+                toggleHabitCompleted={this.props.toggleHabitCompleted}
+                />
             </div>
         )
     }

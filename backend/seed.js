@@ -18,6 +18,13 @@ const usersData = [
         habits: [
             {name: "eating", streak: 0, completed: [false], lastCompleted: "1996-03-25"}
         ]
+    },
+    {
+        username: "Lau Ran",
+        password: "bestMc",
+        habits: [
+            {name:"exercise", streak: 7, completed:[true], lastCompleted:"2020-01-21"}
+        ]
     }
 ]
 

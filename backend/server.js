@@ -5,6 +5,7 @@ const cors = require('cors');
 const PORT = 4000;
 const seedData = require("./seed.js");
 const { readAllUsers,  readUser, addUser, addHabit, updateCompleted, updateHabit } = require("./database.js");
+const { summary } = require('date-streaks');
 app.use(cors());
 app.use(bodyParser.json());
 
@@ -29,11 +30,35 @@ app.get("/readAllUsers", (req, res) => {
     })
 })
 
+const checkStreak = (habits) => {
+    habits.map(habit => {
+        //update streak
+        if(habit.lastCompleted != null)
+        {
+            console.log(habit.lastCompleted)
+            let dateArray = [new Date("2020-01-21"), new Date("2020-01-22")] 
+            console.log(dateArray)
+            console.log(summary({dateArray}))
+            if(summary({dateArray}).currentStreak > 0)
+                habit.streak = habit.streak + summary({dateArray}).currentStreak
+            else
+                habit.streak = 0
+            for(completed in habit.completed)
+                habit.completed = false;
+        }
+            
+
+    })
+    return habits
+}
+
 //get one users habits
 app.get("/readUserHabits/:id", (req,res) => {
     let id = req.params.id;
     readUser(id).then((response,err)=>{
-        res.json(response.habits)
+
+        let habits = checkStreak(response.habits)
+        res.json(habits)
     })
     .catch(err => { 
         res.json(err)
