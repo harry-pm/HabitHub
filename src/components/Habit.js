@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import "../styles/Habits.css";
 
 export default class Habit extends Component {
 
@@ -6,8 +7,7 @@ export default class Habit extends Component {
         console.log(this.props.habit)
         return (
             <div className="flex-row">
-            <p className="habit">{this.props.habit.name}</p>
-            <p className="streak">{this.props.habit.streak}</p>
+            <p>{`${this.props.habit.name} ${this.props.habit.streak}`}</p>
             <div className="checkBoxes">
                 {this.props.habit.completed.map((check, id) => {
                     return <input onChange={this.props.toggleCompleted.bind()}key={id} id={id} className={this.props.habit._id} type="checkbox" defaultChecked={check}/>
