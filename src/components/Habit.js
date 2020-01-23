@@ -5,7 +5,7 @@ export default class Habit extends Component {
     render() {
         console.log(this.props.habit)
         return (
-            <div>
+            <div className="flex-row">
             <p className="habit">{this.props.habit.name}</p>
             <p className="streak">{this.props.habit.streak}</p>
             <div className="checkBoxes">
