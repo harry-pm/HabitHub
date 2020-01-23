@@ -1,7 +1,6 @@
 const { Habit, User } = require('./habits.model');
 const db = require('./databaseConfig.js');
 
-
 //dates are weird
 const usersData = [
     {
