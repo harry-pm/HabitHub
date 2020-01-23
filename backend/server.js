@@ -55,14 +55,15 @@ app.get("/readAllUsers", (req, res) => {
             let username = req.body.username;
             let password = req.body.password;
 
-            //validation?
+            //unique user not working
             addUser(username, password).then(data => {
-                res.send({user: data,
+                res.send({
+                    user: data,
                     success: true
                 })
             }).catch(err => {
                 res.send({
-                    user: data,
+                    user : data,
                     success: false
                 })
             })

@@ -55,8 +55,16 @@ const checkStreak = (habits) => {
             //if habit is not null or today (as giving today with this library results in a streak)
            if(habit.lastCompleted !== null && !isToday(habit.lastCompleted))
            {
+            const dates = [
+                habit.lastCompleted
+            ];
+            if (summary({dates}).currentStreak === 1) habit.streak++;
+            else if (summary({dates}).currentStreak === 0) habit.streak = 0;
             for(let i in habit.completed){habit.completed[i] =false;}
            }
+         }
+         else{
+            habit.streak = 0;
          }
             })
         return habits
@@ -75,7 +83,7 @@ const readUser = (id) => {
 const addUser = (username, password) => {
     //return what is sent for testing late
         let user = new User({username:username, password:password, habits: [] })
-        return user.save()
+        return user.save
      
 }
 
