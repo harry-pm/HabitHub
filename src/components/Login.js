@@ -8,8 +8,8 @@ export default function Login(props) {
             {/* onSubmit verify function passed from props to be added */}
             <form onSubmit={props.handleLogin}>
                 <input type="text" name="username" placeholder="Enter username" onChange={props.handleUsername}></input>
-                <input type="text" name="password" placeholder="Enter password" onChange={props.handlePassword}></input>
-                <input type="submit" className="loginButton" value="Log in" className="btn btn-primary btn-lg"></input>
+                <input type="password" name="password" placeholder="Enter password" onChange={props.handlePassword}></input>
+                <input type="submit" value="Log in" className="btn btn-primary btn-lg loginButton"></input>
             </form>
         </div>
     )
