@@ -5,24 +5,6 @@ const {
     summary
 } = require('date-streaks');
 
-//reset completed values of habit after each day
-// const resetCompleted =(user)=> {
-
-//     if(!isToday(user.lastAcessed)){
-//         user.habits.map(habit => {
-//             for(let index in habit.completed)
-//             {
-//                 habit.completed[index] = false;
-//             }
-                
-//         })
-//     }
-//     user.lastAcessed = new Date();
-//     user.save()
-// }
-
-    
-
 
 //check is today
 const isToday = (someDate) => {
