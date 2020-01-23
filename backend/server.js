@@ -54,19 +54,37 @@ app.get("/readAllUsers", (req, res) => {
         app.post("/addUser", (req, res) => {
             let username = req.body.username;
             let password = req.body.password;
-
-            //unique user not working
-            addUser(username, password).then(data => {
-                res.send({
-                    user: data,
-                    success: true
-                })
-            }).catch(err => {
-                res.send({
-                    user : data,
-                    success: false
+            //handle unqiue user 
+            let validUser = true
+            readAllUsers()
+            .then(users=> {
+                users.map(user=>{
+                    if(user.username===username)
+                        validUser = false;
                 })
             })
+            .then(()=>{
+                if(validUser)
+                {
+                addUser(username, password).then(data => {
+                    res.send({
+                        user: data,
+                        success: true
+                    })
+                }).catch(err => {
+                    res.send({
+                        success: false
+                    })
+                })
+            }
+            else
+            {
+                res.send({success:false})
+            }
+                
+            })
+            .catch(err=>{})
+           
 
 
         })

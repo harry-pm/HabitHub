@@ -83,7 +83,7 @@ const readUser = (id) => {
 const addUser = (username, password) => {
     //return what is sent for testing late
         let user = new User({username:username, password:password, habits: [] })
-        return user.save
+        return user.save()
      
 }
 
