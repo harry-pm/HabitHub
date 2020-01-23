@@ -23,9 +23,7 @@ app.use(bodyParser.json());
 app.get('/seed', (req, res) => {
     seedData();
     res.send("Data seeded.");
-})
-
-
+});
 
 // get all users
 app.get("/readAllUsers", (req, res) => {
