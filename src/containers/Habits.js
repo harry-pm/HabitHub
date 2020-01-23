@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Add from '../components/Add';
 import List from '../components/List';
+import "../styles/Habits.css";
 
 export default class Habits extends Component {
     componentDidMount() {
@@ -19,7 +20,8 @@ export default class Habits extends Component {
 
     render() {
         return (
-            <div>
+            <div className="habits">
+                <h1>Your Habit List</h1>
                 <Add addHabit = {this.props.addHabit}/>
                 <List 
                 habits={this.props.userHabits}

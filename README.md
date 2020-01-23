@@ -1,5 +1,4 @@
-Habit Tracker
-=============
+# Habit Tracker
 
 ## Brief
 - Users should be able to login
@@ -22,7 +21,7 @@ Frequency - how many times a day
 - As a user, I want to toggle the progress of a habit, so my progress is tracked
 - As a user, I want to view my streak, so I know how long I have been keeping it up
 
-User Stories (Extra)
+### User Stories (Extra)
 - As a user, I want to know if my login was incorrect, so I re enter my credentials
 - As a user, I want to be able to remove a habit, so I can stop a habit
 - As a user, I want to be able to choose how I track my habit, so I can tailor it to habit
