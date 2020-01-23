@@ -111,7 +111,7 @@ class App extends React.Component {
               handleLogin={this.handleLogin}
               handleUsername={this.handleUsername}
               handlePassword={this.handlePassword}/>
-              <Link to="/register">Create Account</Link>
+              <Link to="/register">Create a New Account</Link>
               {/* verify function */}
                 {this.state.loggedIn && <Redirect to="/habits" />}
             </Route>
