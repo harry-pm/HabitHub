@@ -1,0 +1,12 @@
+.habits {
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+}
+
+.flex-row {
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+}
+
