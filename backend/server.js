@@ -1,3 +1,4 @@
+//imports
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
@@ -10,16 +11,13 @@ const {
     addUser,
     addHabit,
     updateHabit,
-    isToday,
     checkStreak
 } = require("./database.js");
 
+//express setup
 app.use(cors());
 app.use(bodyParser.json());
 
-// connection.once('open', function() {
-//     console.log("MongoDB database connection established successfully")
-// })
 
 //seed data
 app.get('/seed', (req, res) => {
@@ -29,30 +27,21 @@ app.get('/seed', (req, res) => {
 
 
 
-// Get all users
+// get all users
 app.get("/readAllUsers", (req, res) => {
-    readAllUsers().then((response, err) => {
-        //remove habits as this call will be used to validate user login, so habits not needed
-        //removes habits from user record when sent
-        response.map(user => {
-            user.habits = null
-        })
-        res.json(response)
-    })
+    readAllUsers()
+    .then(response => {res.json(response)})
+    .catch(err=> {res.json(err)})
 })
-
-
-
-
-
 
         //get one users habits
         app.get("/readUserHabits/:id", (req, res) => {
             let id = req.params.id;
-            readUser(id).then((response, err) => {
-
-                    let habits = checkStreak(response.habits)
-
+            readUser(id).then((user, err) => {
+                console.log("valid read habits")
+                    let habits = checkStreak(user.habits)
+                    //reset habit completed
+                    // resetCompleted(user)
                     res.json(habits)
                 })
                 .catch(err => {
@@ -65,17 +54,37 @@ app.get("/readAllUsers", (req, res) => {
         app.post("/addUser", (req, res) => {
             let username = req.body.username;
             let password = req.body.password;
-
-            //validation?
-            addUser(username, password).then(data => {
-                res.send({
-                    success: true
-                })
-            }).catch(err => {
-                res.send({
-                    success: false
+            //handle unqiue user 
+            let validUser = true
+            readAllUsers()
+            .then(users=> {
+                users.map(user=>{
+                    if(user.username===username)
+                        validUser = false;
                 })
             })
+            .then(()=>{
+                if(validUser)
+                {
+                addUser(username, password).then(data => {
+                    res.send({
+                        user: data,
+                        success: true
+                    })
+                }).catch(err => {
+                    res.send({
+                        success: false
+                    })
+                })
+            }
+            else
+            {
+                res.send({success:false})
+            }
+                
+            })
+            .catch(err=>{})
+           
 
 
         })
@@ -84,7 +93,6 @@ app.get("/readAllUsers", (req, res) => {
             let id = req.params.id;
             let name = req.body.name;
             let completed = req.body.completed;
-            console.log(id, name, completed)
             res.send(addHabit(id, name, completed))
         })
 
@@ -93,11 +101,8 @@ app.get("/readAllUsers", (req, res) => {
             let userId = req.params.userId;
             let habits = req.body.habits;
             updateHabit(userId, habits);
-            res.send("shush postman");
+            res.send(habits);
         })
-
-        //remove habit
-
 
         app.listen(PORT, function () {
             console.log("Server is running on Port: " + PORT);
