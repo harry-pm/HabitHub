@@ -10,6 +10,7 @@ import Register from './Register';
 import Login from '../components/Login';
 import Habits from '../containers/Habits';
 import axios from 'axios';
+import "../styles/App.css"
 const apiUrl = 'http://localhost:4000'
 
 class App extends React.Component {
@@ -106,11 +107,11 @@ class App extends React.Component {
         <div className="App">
           <Switch>
             <Route exact path="/">
-              <Link to="/register">Create Account</Link>
               <Login 
               handleLogin={this.handleLogin}
               handleUsername={this.handleUsername}
               handlePassword={this.handlePassword}/>
+              <Link to="/register">Create Account</Link>
               {/* verify function */}
                 {this.state.loggedIn && <Redirect to="/habits" />}
             </Route>
