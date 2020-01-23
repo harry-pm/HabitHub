@@ -10,3 +10,11 @@
     flex-direction: row;
 }
 
+.checkBoxes {
+    margin-left: 10px;
+}
+
+input[type="text"], button {
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
