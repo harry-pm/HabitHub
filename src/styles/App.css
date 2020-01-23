@@ -1,9 +1,19 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
+body {
+    background-color: #09BC8A;
+}
+
+.App {
+    text-align: center;
+}
+
 h1 {
     text-align: center;
     font-family: 'Roboto', sans-serif;
     font-size: 50px;
+    margin-top: 200px;
+    color: #172A3A;
 }
 
 form {
@@ -16,6 +26,13 @@ form {
 
 form > input {
     margin-bottom: 10px;
+}
+
+.loginButton {
+    width: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #004346;
 }
 
 Link {
