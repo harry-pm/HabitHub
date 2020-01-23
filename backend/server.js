@@ -1,3 +1,4 @@
+//imports
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
@@ -10,16 +11,13 @@ const {
     addUser,
     addHabit,
     updateHabit,
-    isToday,
     checkStreak
 } = require("./database.js");
 
+//express setup
 app.use(cors());
 app.use(bodyParser.json());
 
-// connection.once('open', function() {
-//     console.log("MongoDB database connection established successfully")
-// })
 
 //seed data
 app.get('/seed', (req, res) => {
@@ -29,22 +27,12 @@ app.get('/seed', (req, res) => {
 
 
 
-// Get all users
+// get all users
 app.get("/readAllUsers", (req, res) => {
-    readAllUsers().then((response, err) => {
-        //remove habits as this call will be used to validate user login, so habits not needed
-        //removes habits from user record when sent
-        response.map(user => {
-            user.habits = null
-        })
-        res.json(response)
-    })
+    readAllUsers()
+    .then(response => {res.json(response)})
+    .catch(err=> {res.json(err))
 })
-
-
-
-
-
 
         //get one users habits
         app.get("/readUserHabits/:id", (req, res) => {

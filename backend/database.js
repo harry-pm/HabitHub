@@ -1,3 +1,4 @@
+//imports
 const { Habit, User } = require('./habits.model');
 const db = require('./databaseConfig.js');
 const {
@@ -7,36 +8,30 @@ const {
 //check is today
 const isToday = (someDate) => {
     const today = new Date()
-    return someDate.getDate() == today.getDate() &&
-        someDate.getMonth() == today.getMonth() &&
-        someDate.getFullYear() == today.getFullYear()
+    return someDate.getDate() === today.getDate() &&
+        someDate.getMonth() === today.getMonth() &&
+        someDate.getFullYear() === today.getFullYear()
 }
 
-//check is streak
+//check if habit is on streak 
 const checkStreak = (habits) => {
-        
-        //uses american dates
        habits.map(habit => {
+           //if habit is not null or today (as giving today with this library results in a streak)
            if(habit.lastCompleted != null && !isToday(habit.lastCompleted))
            {
             const dates = [
                 habit.lastCompleted
             ];
-            if (summary({dates}).currentStreak === 1)
-                habit.streak++;
-            else if (summary({dates}).currentStreak === 0)
-                habit.streak = 0;
+            if (summary({dates}).currentStreak === 1) habit.streak++;
+            else if (summary({dates}).currentStreak === 0) habit.streak = 0;
            }
-                
             })
         return habits
         }
 
 // read all users
 const readAllUsers =  () => {
-    return User.find({}, (err, records) => {
-        // console.log(records);
-    });
+    return User.find({}, "username password")
 }
 
 //read one user by id
@@ -95,4 +90,4 @@ const updateHabit = (userId, habits) => {
 
 
 
-module.exports = { readAllUsers, readUser, addUser, addHabit, updateHabit, isToday, checkStreak };
+module.exports = { readAllUsers, readUser, addUser, addHabit, updateHabit, checkStreak };
