@@ -38,10 +38,7 @@ app.get("/readAllUsers", (req, res) => {
         app.get("/readUserHabits/:id", (req, res) => {
             let id = req.params.id;
             readUser(id).then((user, err) => {
-                console.log("valid read habits")
                     let habits = checkStreak(user.habits)
-                    //reset habit completed
-                    // resetCompleted(user)
                     res.json(habits)
                 })
                 .catch(err => {

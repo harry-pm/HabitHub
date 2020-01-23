@@ -95,15 +95,12 @@ const addHabit = (id, name, completed) => {
         lastCompleted : null
     })
     User.findById(id,(err,user)=>{
-        if(err)
-            console.log(err)
-        // console.log(user)
+        // if(err)
+        //     console.log(err)
         user.habits.push(habit)
         user.save((err,data) => {
-            if(err)
-                console.log(err)
-            //data saved
-            // console.log(data)
+            // if(err)
+            //     console.log(err)
         })
     })
 }
@@ -111,7 +108,6 @@ const addHabit = (id, name, completed) => {
 const updateHabit = (userId, habits) => {
 
     readUser(userId).then(user => {
-        console.log("Updated")
         user.habits.map((habit,index) => {
             //check habit ids match
                 habit.completed = habits[index].completed
@@ -120,13 +116,9 @@ const updateHabit = (userId, habits) => {
                     habit.lastCompleted = new Date();
         })
         
-        user.save((err,data) => {
-            if(err) console.log("saving ");
-        })
+        user.save((err,data) => {})
     })
-    .catch(err => {
-        if(err) console.log("error reading");
-    })  
+    .catch(err => { })  
 }
 
 
