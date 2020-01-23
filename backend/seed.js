@@ -8,22 +8,22 @@ const usersData = [
         username: 'juicey',
         password: 'yusey',
         habits: [
-            {name: "washing", streak: 3, completed: [true], lastCompleted: "2020-01-19"},
-            {name: "pushups", streak: 100, completed: [true, true, false], lastCompleted: "2020-01-19"}
+            {name: "washing", streak: 3, completed: [true], lastCompleted: new Date("01/19/2020")},
+            {name: "pushups", streak: 100, completed: [true, true, false], lastCompleted: new Date("01/19/2020")}
         ]
     },
     {
         username: "jtrigger",
         password: "glock",
         habits: [
-            {name: "eating", streak: 0, completed: [false], lastCompleted: "1996-03-25"}
+            {name: "eating", streak: 0, completed: [false], lastCompleted: new Date("03/25/1995")}
         ]
     },
     {
         username: "Lau Ran",
         password: "bestMc",
         habits: [
-            {name:"exercise", streak: 7, completed:[true], lastCompleted:"2020-01-21"}
+            {name:"exercise", streak: 7, completed:[true], lastCompleted: new Date("01/22/2020")}
         ]
     }
 ]

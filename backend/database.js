@@ -1,6 +1,7 @@
 const { Habit, User } = require('./habits.model');
 const db = require('./databaseConfig.js');
 
+
 // read all users
 const readAllUsers =  () => {
     return User.find({}, (err, records) => {
@@ -43,7 +44,7 @@ const addHabit = (id, name, completed) => {
     })
 }
 
-const updateCompleted = (userId, habits) => {
+const updateHabit = (userId, habits) => {
 
     User.findById(userId, (err, user) => {
         if(err) console.log(err);
@@ -51,6 +52,8 @@ const updateCompleted = (userId, habits) => {
         user.habits.map((habit,index) => {
             //check habit ids match
                 habit.completed = habits[index].completed
+                if(!habit.completed.includes(false))
+                    habit.lastCompleted = new Date();
         })
         
         user.save((err,data) => {
@@ -59,22 +62,6 @@ const updateCompleted = (userId, habits) => {
     })
 }
 
-const updateHabit = (userId, habitId, updatedHabit) => {
 
-    User.findById(userId, (err, user) => {
-        if(err)
-            console.log(err)
-        user.habits.map(habit => {
-            if (String(habit._id) === habitId)
-                habit.completed = updatedHabit.completed;
-                habit.streak = updatedHabit.streak;
-                habit.lastCompleted = updateHabit.lastCompleted;
-        })
-        user.save((err,data) => {
-            if(err)
-                console.log(err)
-        })
-    })
-}
 
-module.exports = { readAllUsers, readUser, addUser, addHabit, updateCompleted, updateHabit };
+module.exports = { readAllUsers, readUser, addUser, addHabit, updateHabit };
