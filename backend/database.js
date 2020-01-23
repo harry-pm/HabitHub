@@ -43,14 +43,14 @@ const addHabit = (id, name, completed) => {
     })
 }
 
-const updateCompleted = (userId, habitId, completed) => {
+const updateCompleted = (userId, habits) => {
 
     User.findById(userId, (err, user) => {
         if(err)
             console.log(err)
-        user.habits.map(habit => {
-            if (String(habit._id) === habitId)
-                habit.completed = completed
+        user.habits.map((habit,index) => {
+            //check habit ids match
+                habit.completed = habits[index].completed
         })
         user.save((err,data) => {
             if(err)

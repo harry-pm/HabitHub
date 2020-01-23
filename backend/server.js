@@ -35,15 +35,15 @@ const checkStreak = (habits) => {
         //update streak
         if(habit.lastCompleted != null)
         {
-            console.log(habit.lastCompleted)
+            // console.log(habit.lastCompleted)
             let dateArray = [new Date("2020-01-21"), new Date("2020-01-22")] 
-            console.log(dateArray)
-            console.log(summary({dateArray}))
+            // console.log(dateArray)
+            // console.log(summary({dateArray}))
             if(summary({dateArray}).currentStreak > 0)
                 habit.streak = habit.streak + summary({dateArray}).currentStreak
             else
                 habit.streak = 0
-            for(completed in habit.completed)
+            for(let completed in habit.completed)
                 habit.completed = false;
         }
             
@@ -90,11 +90,11 @@ app.post("/addHabit/:id", (req,res)=> {
 })
 
 //update habit completed
-app.post("/updateHabit", (req,res)=> {
-    let userId = req.body.userId;
-    let habitId = req.body.habitId;
-    let completed = req.body.completed;
-    updateCompleted(userId, habitId, completed);
+app.post("/updateHabits/:userId", (req,res)=> {
+    let userId = req.params.userId;
+    let habits = req.body.habits;
+    console.log("habits:", habits)
+    // updateCompleted(userId, habits);
     res.send("shush postman")
 })
 
