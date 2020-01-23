@@ -9,11 +9,11 @@ const {
     readUser,
     addUser,
     addHabit,
-    updateHabit
+    updateHabit,
+    isToday,
+    checkStreak
 } = require("./database.js");
-const {
-    summary
-} = require('date-streaks');
+
 app.use(cors());
 app.use(bodyParser.json());
 
@@ -43,32 +43,7 @@ app.get("/readAllUsers", (req, res) => {
 
 
 
-const isToday = (someDate) => {
-    const today = new Date()
-    return someDate.getDate() == today.getDate() &&
-        someDate.getMonth() == today.getMonth() &&
-        someDate.getFullYear() == today.getFullYear()
-}
 
-
-const checkStreak = (habits) => {
-        
-        //uses american dates
-       habits.map(habit => {
-           if(habit.lastCompleted != null && !isToday(habit.lastCompleted))
-           {
-            const dates = [
-                habit.lastCompleted
-            ];
-            if (summary({dates}).currentStreak === 1)
-                habit.streak++;
-            else if (summary({dates}).currentStreak === 0)
-                habit.streak = 0;
-           }
-                
-            })
-        return habits
-        }
 
 
         //get one users habits

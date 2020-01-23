@@ -1,6 +1,36 @@
 const { Habit, User } = require('./habits.model');
 const db = require('./databaseConfig.js');
+const {
+    summary
+} = require('date-streaks');
 
+//check is today
+const isToday = (someDate) => {
+    const today = new Date()
+    return someDate.getDate() == today.getDate() &&
+        someDate.getMonth() == today.getMonth() &&
+        someDate.getFullYear() == today.getFullYear()
+}
+
+//check is streak
+const checkStreak = (habits) => {
+        
+        //uses american dates
+       habits.map(habit => {
+           if(habit.lastCompleted != null && !isToday(habit.lastCompleted))
+           {
+            const dates = [
+                habit.lastCompleted
+            ];
+            if (summary({dates}).currentStreak === 1)
+                habit.streak++;
+            else if (summary({dates}).currentStreak === 0)
+                habit.streak = 0;
+           }
+                
+            })
+        return habits
+        }
 
 // read all users
 const readAllUsers =  () => {
@@ -52,6 +82,7 @@ const updateHabit = (userId, habits) => {
         user.habits.map((habit,index) => {
             //check habit ids match
                 habit.completed = habits[index].completed
+                habit.streak = habits[index].streak
                 if(!habit.completed.includes(false))
                     habit.lastCompleted = new Date();
         })
@@ -64,4 +95,4 @@ const updateHabit = (userId, habits) => {
 
 
 
-module.exports = { readAllUsers, readUser, addUser, addHabit, updateHabit };
+module.exports = { readAllUsers, readUser, addUser, addHabit, updateHabit, isToday, checkStreak };
