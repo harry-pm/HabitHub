@@ -31,16 +31,17 @@ app.get('/seed', (req, res) => {
 app.get("/readAllUsers", (req, res) => {
     readAllUsers()
     .then(response => {res.json(response)})
-    .catch(err=> {res.json(err))
+    .catch(err=> {res.json(err)})
 })
 
         //get one users habits
         app.get("/readUserHabits/:id", (req, res) => {
             let id = req.params.id;
-            readUser(id).then((response, err) => {
-
-                    let habits = checkStreak(response.habits)
-
+            readUser(id).then((user, err) => {
+                console.log("valid read habits")
+                    let habits = checkStreak(user.habits)
+                    //reset habit completed
+                    // resetCompleted(user)
                     res.json(habits)
                 })
                 .catch(err => {
@@ -56,11 +57,12 @@ app.get("/readAllUsers", (req, res) => {
 
             //validation?
             addUser(username, password).then(data => {
-                res.send({
+                res.send({user: data,
                     success: true
                 })
             }).catch(err => {
                 res.send({
+                    user: data,
                     success: false
                 })
             })
@@ -72,7 +74,6 @@ app.get("/readAllUsers", (req, res) => {
             let id = req.params.id;
             let name = req.body.name;
             let completed = req.body.completed;
-            console.log(id, name, completed)
             res.send(addHabit(id, name, completed))
         })
 
@@ -81,11 +82,8 @@ app.get("/readAllUsers", (req, res) => {
             let userId = req.params.userId;
             let habits = req.body.habits;
             updateHabit(userId, habits);
-            res.send("shush postman");
+            res.send(habits);
         })
-
-        //remove habit
-
 
         app.listen(PORT, function () {
             console.log("Server is running on Port: " + PORT);

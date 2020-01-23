@@ -16,7 +16,7 @@ const usersData = [
         username: "jtrigger",
         password: "glock",
         habits: [
-            {name: "eating", streak: 0, completed: [false], lastCompleted: new Date("03/25/1995")}
+            {name: "eating", streak: 0, completed: [false, true, true], lastCompleted: new Date("01/22/2020")}
         ]
     },
     {
