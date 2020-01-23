@@ -43,8 +43,8 @@ const checkStreak = (habits) => {
                 habit.streak = habit.streak + summary({dateArray}).currentStreak
             else
                 habit.streak = 0
-            for(let completed in habit.completed)
-                habit.completed = false;
+            for(let i in habit.completed)
+                habit.completed[i] = false;
         }
             
 
@@ -57,8 +57,9 @@ app.get("/readUserHabits/:id", (req,res) => {
     let id = req.params.id;
     readUser(id).then((response,err)=>{
 
-        let habits = checkStreak(response.habits)
-        res.json(habits)
+        //let habits = checkStreak(response.habits)
+        
+        res.json(response.habits)
     })
     .catch(err => { 
         res.json(err)
@@ -93,9 +94,9 @@ app.post("/addHabit/:id", (req,res)=> {
 app.post("/updateHabits/:userId", (req,res)=> {
     let userId = req.params.userId;
     let habits = req.body.habits;
-    console.log("habits:", habits)
-    // updateCompleted(userId, habits);
-    res.send("shush postman")
+    console.log("Updated");
+    updateCompleted(userId, habits);
+    res.send("shush postman");
 })
 
 //remove habit
