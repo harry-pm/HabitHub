@@ -6,7 +6,10 @@ export default function List(props) {
         <div className="habitsList">
          {props.habits.length > 0 && props.habits.map((habit, id) => (
             <div key={id} >
-                <Habit habit={habit}/>
+                <Habit 
+                habit={habit}
+                toggleCompleted={props.toggleHabitCompleted}
+                />
             </div>)  
             )}
         </div>

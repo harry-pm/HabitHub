@@ -3,16 +3,17 @@ import Add from '../components/Add';
 import List from '../components/List';
 
 export default class Habits extends Component {
-
-    state = {
-        userHabits: []
+    componentDidMount() {
+        window.addEventListener("beforeunload", this.beforeunload.bind(this));
     }
 
-    // function to setstate equal to the habits prop passed down 
-    setHabits (props) {
-        this.setState({ userHabits: [...this.state.userHabits, props]})
+    componentWillUnmount() {
+        window.removeEventListener("beforeunload", this.beforeunload.bind(this))
     }
 
+    beforeunload() {
+        this.props.saveHabits();
+    }
 
     // function to assign streak
 
@@ -20,7 +21,10 @@ export default class Habits extends Component {
         return (
             <div>
                 <Add addHabit = {this.props.addHabit}/>
-                <List habits={this.props.userHabits}/>
+                <List 
+                habits={this.props.userHabits}
+                toggleHabitCompleted={this.props.toggleHabitCompleted}
+                />
             </div>
         )
     }

@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 export default class Add extends Component {
 
     state = {
-        frequency: "1",
+        frequency: [false],
         name: ""
     }
 

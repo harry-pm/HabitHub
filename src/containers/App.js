@@ -49,8 +49,21 @@ class App extends React.Component {
     )
   }
 
-  // componentDidMount(){
-  // }
+  toggleHabitCompleted = (e)=>{
+    
+    let habitId = e.target.className
+    let completedIndex = e.target.id;
+    let updatedHabits  = this.state.userHabits
+    for(let index in updatedHabits){
+      if(updatedHabits[index]._id === habitId)
+      {
+       
+        updatedHabits[index].completed[completedIndex] = !updatedHabits[index].completed[completedIndex]; 
+      }
+       
+    }
+    this.setState({...this.state, userHabits : updatedHabits})
+  }
 
   handleUsername = (e) => {
     this.setState({login : {...this.state.login, username :  e.target.value} })
@@ -70,11 +83,9 @@ class App extends React.Component {
         console.log(username,password)
         console.log("valid user")
         this.setState({currentUser : user})
-        this.setState({ loggedIn: true })}
+        this.setState({ loggedIn: true })
         this.getHabits(user._id)
-        
-        //redirect to habits
-        // this.props.history.push('/habits')
+        }
 
       })
   }
@@ -86,8 +97,12 @@ class App extends React.Component {
     })
   }
 
-  // function to add habit
-
+  saveHabits = () => {
+    let userId = this.state.currentUser._id;
+    let habits = this.state.userHabits;
+    console.log("app habits:",habits, userId)
+    axios.post(apiUrl + "/updateHabits/" + userId, {habits:habits})
+  }
   render () {
     return (
       <Router>
@@ -109,7 +124,9 @@ class App extends React.Component {
               <Habits 
                 userHabits = {this.state.userHabits}
                 addHabit = {this.addHabit}
-              />
+                toggleHabitCompleted = {this.toggleHabitCompleted}
+                saveHabits = {this.saveHabits}
+              />  
               {!this.state.loggedIn && <Redirect to="/" />}
               {/* if loggedIn === true, render Habits component and pass down user and habits */}
             </Route>

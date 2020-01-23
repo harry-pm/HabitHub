@@ -5,6 +5,7 @@ const cors = require('cors');
 const PORT = 4000;
 const seedData = require("./seed.js");
 const { readAllUsers,  readUser, addUser, addHabit, updateCompleted, updateHabit } = require("./database.js");
+const { summary } = require('date-streaks');
 app.use(cors());
 app.use(bodyParser.json());
 
@@ -29,10 +30,35 @@ app.get("/readAllUsers", (req, res) => {
     })
 })
 
+const checkStreak = (habits) => {
+    habits.map(habit => {
+        //update streak
+        if(habit.lastCompleted != null)
+        {
+            // console.log(habit.lastCompleted)
+            let dateArray = [new Date("2020-01-21"), new Date("2020-01-22")] 
+            // console.log(dateArray)
+            // console.log(summary({dateArray}))
+            if(summary({dateArray}).currentStreak > 0)
+                habit.streak = habit.streak + summary({dateArray}).currentStreak
+            else
+                habit.streak = 0
+            for(let i in habit.completed)
+                habit.completed[i] = false;
+        }
+            
+
+    })
+    return habits
+}
+
 //get one users habits
 app.get("/readUserHabits/:id", (req,res) => {
     let id = req.params.id;
     readUser(id).then((response,err)=>{
+
+        //let habits = checkStreak(response.habits)
+        
         res.json(response.habits)
     })
     .catch(err => { 
@@ -65,12 +91,12 @@ app.post("/addHabit/:id", (req,res)=> {
 })
 
 //update habit completed
-app.post("/updateHabit", (req,res)=> {
-    let userId = req.body.userId;
-    let habitId = req.body.habitId;
-    let completed = req.body.completed;
-    updateCompleted(userId, habitId, completed);
-    res.send("shush postman")
+app.post("/updateHabits/:userId", (req,res)=> {
+    let userId = req.params.userId;
+    let habits = req.body.habits;
+    console.log("Updated");
+    updateCompleted(userId, habits);
+    res.send("shush postman");
 })
 
 //remove habit
