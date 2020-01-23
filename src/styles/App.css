@@ -29,10 +29,9 @@ form > input {
 }
 
 .loginButton {
-    width: 100px;
+    width: 300px;
     margin-left: auto;
     margin-right: auto;
-    color: #004346;
 }
 
 Link {
