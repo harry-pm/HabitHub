@@ -3,9 +3,16 @@ import Add from '../components/Add';
 import List from '../components/List';
 
 export default class Habits extends Component {
+    componentDidMount() {
+        window.addEventListener("beforeunload", this.beforeunload.bind(this));
+    }
 
     componentWillUnmount() {
-        this.props.saveHabits()
+        window.removeEventListener("beforeunload", this.beforeunload.bind(this))
+    }
+
+    beforeunload() {
+        this.props.saveHabits();
     }
 
     // function to assign streak
