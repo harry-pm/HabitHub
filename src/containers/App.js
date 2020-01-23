@@ -6,14 +6,11 @@ import {
   Link,
   Redirect
 } from 'react-router-dom';
-import '../App.css';
 import Register from './Register';
 import Login from '../components/Login';
 import Habits from '../containers/Habits';
 import axios from 'axios';
 const apiUrl = 'http://localhost:4000'
-
-
 
 class App extends React.Component {
 
