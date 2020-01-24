@@ -5,7 +5,8 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const PORT = 4000;
 const seedData = require("./seed.js");
-const seedDataTest = require("./test/seedTest.js")
+// const seedDataTest = require("./test/seedTest.js")
+
 const {
     readAllUsers,
     readUser,
@@ -27,7 +28,7 @@ app.get('/seed', (req, res) => {
 });
 
 app.get('/seedTest', (req, res) => {
-    seedDataTest();
+    // seedDataTest();
     res.send("Test data seeded.");
 });
 
