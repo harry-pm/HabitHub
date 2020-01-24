@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import "../styles/Habits.css";
 
 export default class Habit extends Component {
-
+    
     render() {
         return (
             <div className="flex-row">

@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Habits from '../src/containers/Habits';
 import { shallow } from 'enzyme';
-import { expect } from 'chai';
+
 const dummyData = [
   {
     "completed": [
