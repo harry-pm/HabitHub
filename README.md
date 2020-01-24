@@ -61,10 +61,6 @@ seedDataTest()
 16. Enjoy at localhost:3000 on your web browser :)
 
 ## Project 
-Names
-Habit Hub
-Habits repeat once per day
-Frequency - how many times a day
 
 ## User stories (MVP)
 - As a user, I want to be able to enter a username/password, so I can login
