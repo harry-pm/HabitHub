@@ -22,7 +22,7 @@ export default class Add extends Component {
     render() {
         return (
         <div>
-            <input required onChange={this.handleName} type="text" name="add" placeholder="Add a habit..."></input>
+            <input id="habittext" required onChange={this.handleName} type="text" name="add" placeholder="Enter the habit..."></input>
             
             <p>Frequency per day: <select required onChange={this.handleFrequency}>
                 <option value="1">1</option>
@@ -31,7 +31,7 @@ export default class Add extends Component {
                 <option value="4">4</option>
             </select></p>
             
-            <button onClick={this.props.addHabit.bind(this, this.state.name, this.state.frequency)}>Add habit you addict!</button>
+            <button onClick={this.props.addHabit.bind(this, this.state.name, this.state.frequency)} className="btn btn-lg add-habit">Add habit</button>
         </div>
         )
     }
