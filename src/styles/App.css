@@ -40,3 +40,7 @@ form > input {
 Link {
     text-align: center;
 }
+
+.username, .password {
+    border-radius: 8px;
+}

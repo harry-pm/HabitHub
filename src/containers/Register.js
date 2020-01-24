@@ -34,9 +34,9 @@ handlePassword = (e) => {
             <div>
             <h1>Create an Account</h1>
             <form onSubmit={this.handleRegister}>
-                <input onChange={this.handleUsername} type="text" name="username" placeholder="Choose a username..."></input>
-                <input onChange={this.handlePassword} type="password" name="password" placeholder="Choose a password..."></input>
-                <input type="submit" value="Create" className="btn btn-primary btn-lg loginButton"></input>
+                <input onChange={this.handleUsername} className="username" type="text" name="username" placeholder="Choose a username..."></input>
+                <input onChange={this.handlePassword} type="password" className="password" name="password" placeholder="Choose a password..."></input>
+                <input type="submit" value="Create" className="btn btn-lg loginButton"></input>
             </form>
             {this.state.registered !== null && (this.state.registered===true ? <Link to="/">Account created! Go to login page</Link> : <p>Registration failed! Please try again</p>)}
             </div>
