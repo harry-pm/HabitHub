@@ -7,7 +7,7 @@ export default class Habit extends Component {
         console.log(this.props.habit)
         return (
             <div className="flex-row">
-            <p>{`${this.props.habit.name} ${this.props.habit.streak}`}</p>
+            <p>{`${this.props.habit.name} ${this.props.habit.streak}`} <img src="/assets/fire.png" alt="streak logo" /></p>
             <div className="checkBoxes">
                 {this.props.habit.completed.map((check, id) => {
                     return <input onChange={this.props.toggleCompleted.bind()}key={id} id={id} className={this.props.habit._id} type="checkbox" defaultChecked={check}/>
