@@ -5,8 +5,8 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const PORT = 4000;
 const seedData = require("./seed.js");
-// const seedDataTest = require("./test/seedTest.js")
-
+const seedDataTest = require("./test/seedTest.js")
+const path = require("path");
 const {
     readAllUsers,
     readUser,
@@ -20,6 +20,8 @@ const {
 app.use(cors());
 app.use(bodyParser.json());
 
+// Provides Express with access to the 'Assets' folder within 'public'
+app.use(express.static(path.join(__dirname, 'public')));
 
 //seed data
 app.get('/seed', (req, res) => {
