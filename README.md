@@ -9,56 +9,59 @@
 - Developers should host a database to store the daily information about users locally.
 
 ## How to start the project
+
 1. Clone the repo:
 ``` git clone https://github.com/harry-pm/HabitHub.git ```
 
-2. Go into the HabitHub directory:
+2. Run Mongod.exe to start your MongoDB server
+
+3. Go into the HabitHub directory:
 ``` cd HabitHub ```
 
-3. Install the dependencies:
+4. Install the dependencies:
 ``` npm install ```
 
-4. Go into the backend directory:
+5. Go into the backend directory:
 ``` cd backend ```
 
-5. Run the server
+6. Run the server
 ``` node server.js ```
 
-5. Seed the test database by navigating to http://localhost:4000/seedTest on your web browser
+7. Seed the test database by navigating to http://localhost:4000/seedTest on your web browser
 
-6. Stop running the server:
+8. Stop running the server:
 ``` CTRL + C ```
 ``` Y ```
 
-7. Test api routes:
+9. Test api routes:
 ``` npm test ```
 
-8. Return to the HabitHub directory:
+10. Return to the HabitHub directory:
 ``` cd.. ```
 
-9. Run the frontend tests:
+11. Run the frontend tests:
 ``` npm test ```
 
-10. Run React app:
+12. Run React app:
 ``` npm start ```
 
-11. Open new terminal window
+13. Open new terminal window
 
-12. Go into backend directory:
+14. Go into backend directory:
 ``` cd HabitHub/backend ```
 
-13. Comment out the following lines in server.js
+15. Comment out the following lines in server.js
 ```
 const seedDataTest = require("./test/seedTest.js")
 seedDataTest()
 ```
 
-14. Run backend server:
+16. Run backend server:
 ``` node server.js ```
 
-15.  Seed the database by navigating to http://localhost:4000/test on your web browser
+17.  Seed the database by navigating to http://localhost:4000/test on your web browser
 
-16. Enjoy at localhost:3000 on your web browser :)
+18. Enjoy at localhost:3000 on your web browser :)
 
 ## Planning
 
