@@ -126,62 +126,62 @@ Yusaf/Josh (back end):
 - Blockers: Reading files
 
 Lauren/Harry (front end and TDD):
-Achieved: React app setup, rendering basic components, tests for rendering
-Struggles: Manipulating data from backend and testing
-Blockers: See above
+- Achieved: React app setup, rendering basic components, tests for rendering
+- Struggles: Manipulating data from backend and testing
+- Blockers: See above
 
 ### Wednesday
 
-Lauren/Josh (back end):
-Achieved: Finished routes for the MVP
-Struggles: Querying the database properly (may need to refactor)
-Blockers: None
+- Lauren/Josh (back end):
+- Achieved: Finished routes for the MVP
+- Struggles: Querying the database properly (may need to refactor)
+- Blockers: None
 
 Yusaf/Harry (front end and TDD): 
-Achieved: Set up more rendering tests
-Struggles: Issues with TDD terminology, a test that needs to be refactored
-Blockers: None
+- Achieved: Set up more rendering tests
+- Struggles: Issues with TDD terminology, a test that needs to be refactored
+- Blockers: None
 
 Mob programming:
-Achieved: Got user and habit data from API
-Struggles: Redirecting from Login page to Habits page
-Blockers: Redirecting from Login page to Habits page
+- Achieved: Got user and habit data from API
+- Struggles: Redirecting from Login page to Habits page
+- Blockers: Redirecting from Login page to Habits page
 
 ## Thursday
 
 Harry/Josh/Lauren:
-Achieved: Registering a user, logging in a user, adding a habit
-Problems: Incorrect habits showing and delay in adding habits
-Blockers: Bracket in wrong place
+- Achieved: Registering a user, logging in a user, adding a habit
+- Problems: Incorrect habits showing and delay in adding habits
+- Blockers: Bracket in wrong place
 
 Josh/Lauren: 
-Achieved: Implementing frequency for habits, fixed habit bugs
-Problems: Handling streaks, updating habits
-Blockers: Handling streaks, updating habits
+- Achieved: Implementing frequency for habits, fixed habit bugs
+- Problems: Handling streaks, updating habits
+- Blockers: Handling streaks, updating habits
 
 Harry:
-Achieved: Testing config
-Problems: Problems with getting testing running/seeding
-Blockers: Problems with getting test running/seeding
+- Achieved: Testing config
+- Problems: Problems with getting testing running/seeding
+- Blockers: Problems with getting test running/seeding
 
 ## Friday
 
-Harry/Lauren:
-Achieved: Configuring backend testing
-Problems: Seeding test db
-Blockers: See above
+- Harry/Lauren:
+- Achieved: Configuring backend testing
+- Problems: Seeding test db
+- Blockers: See above
 
 Yusaf/Josh:
-Achieved: Updating habits to state, saving habits upon exiting habit page
-Problems: Updating to state
-Blockers: None
+- Achieved: Updating habits to state, saving habits upon exiting habit page
+- Problems: Updating to state
+- Blockers: None
 
 Yusaf/Lauren 
-Achieved: A little CSS styling
-Problems: Aligninment issues, better development framework
-Blockers: None
+- Achieved: A little CSS styling
+- Problems: Aligninment issues, better development framework
+- Blockers: None
 
 Josh/Harry:
-Achieved: Wrote initial db testing
-Problems: Seeding issues
-Blockers: See above
+- Achieved: Wrote initial db testing
+- Problems: Seeding issues
+- Blockers: See above
