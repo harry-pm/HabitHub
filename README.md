@@ -24,7 +24,7 @@
 5. Run the server
 ``` node server.js ```
 
-5. Seed the database by navigating to http://localhost:4000/seed and http://localhost:4000/seedTest on your web browser
+5. Seed the test database by navigating to http://localhost:4000/seedTest on your web browser
 
 6. Stop running the server:
 ``` CTRL + C ```
@@ -47,10 +47,16 @@
 12. Go into backend directory:
 ``` cd HabitHub/backend ```
 
-13. Run backend server:
+13. Comment out the following lines in server.js
+``` const seedDataTest = require("./test/seedTest.js")
+seedDataTest() ```
+
+14. Run backend server:
 ``` node server.js ```
 
-14. Enjoy at localhost:3000 on your web browser :)
+15.  Seed the database by navigating to http://localhost:4000/test on your web browser
+
+16. Enjoy at localhost:3000 on your web browser :)
 
 ## Project 
 Names
