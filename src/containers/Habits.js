@@ -1,49 +1,23 @@
 import React, { Component } from 'react';
-import Streak from '../components/Streak';
 import Add from '../components/Add';
 import List from '../components/List';
+import "../styles/Habits.css";
 
 export default class Habits extends Component {
+    componentDidMount() {window.addEventListener("beforeunload", this.beforeunload.bind(this));}
 
-    state = {
-        userHabits: [
-    {
-      "completed": [
-        true
-      ],
-    "_id": "5e26e0397bd56f3754ed6d19",
-    "name": "washing",
-    "streak": 3,
-    "lastCompleted": "2020-01-19T00:00:00.000Z"
-  },
-  {
-    "completed": [
-      true,
-      true,
-      false
-    ],
-    "_id": "5e26e0397bd56f3754ed6d1a",
-    "name": "pushups",
-    "streak": 100,
-    "lastCompleted": "2020-01-19T00:00:00.000Z"
-  }],
-        streak: ''
-    }
+    componentWillUnmount() {window.removeEventListener("beforeunload", this.beforeunload.bind(this))}
 
-    // function to setstate equal to the habits prop passed down 
-    setHabits (props) {
-        this.setState({ userHabits: [...this.state.userHabits, props]})
-    }
-
-
-    // function to assign streak
-
+    beforeunload() {this.props.saveHabits();}
     render() {
         return (
-            <div>
-                <Streak />
-                <Add />
-                <List habits={this.state.userHabits}/>
+            <div className="habits">
+                <h1>Your Habit List</h1>
+                <Add addHabit = {this.props.addHabit}/>
+                <List 
+                habits={this.props.userHabits}
+                toggleHabitCompleted={this.props.toggleHabitCompleted}
+                />
             </div>
         )
     }

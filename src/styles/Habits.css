@@ -1,0 +1,34 @@
+.habits {
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+}
+
+.flex-row {
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+}
+
+.checkBoxes {
+    margin-left: 10px;
+}
+
+input[type="text"], button {
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+#habittext {
+    border-radius: 8px;
+    width: 300px;
+    padding: 2px;
+}
+
+.add-habit {
+    background-color: #172A3A;
+    color: #fff;
+    width: 300px;
+}
