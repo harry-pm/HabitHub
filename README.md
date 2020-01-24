@@ -60,7 +60,7 @@ seedDataTest()
 
 16. Enjoy at localhost:3000 on your web browser :)
 
-## Project 
+## Planning
 
 ## User stories (MVP)
 - As a user, I want to be able to enter a username/password, so I can login
@@ -98,8 +98,6 @@ Testing frameworks:
 - Chai
 - Enzyme
 
-## Planning
-
 ### Data object stored in database
 - Id
 - Username
@@ -122,7 +120,7 @@ Stretch goals:
 
 ## Standups
 
-### Tuesday
+## Tuesday
 
 Yusaf/Josh (back end):
 - Achieved: Seeding, db setup, reading files
@@ -134,7 +132,7 @@ Lauren/Harry (front end and TDD):
 - Struggles: Manipulating data from backend and testing
 - Blockers: See above
 
-### Wednesday
+## Wednesday
 
 - Lauren/Josh (back end):
 - Achieved: Finished routes for the MVP
