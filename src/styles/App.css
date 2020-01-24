@@ -32,6 +32,9 @@ form > input {
     width: 300px;
     margin-left: auto;
     margin-right: auto;
+    background-color: #172A3A;
+    color: #fff;
+    border-radius: 5px;
 }
 
 Link {
