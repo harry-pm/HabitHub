@@ -76,14 +76,14 @@ app.post("/addUser", (req, res) => {
                 success: true
             })
         }).catch(err => {
-            res.status(500).send({
+            res.send({
                 success: false
             })
         })
     }
     else
     {
-        res.status(500).send({success:false})
+        res.send({success:false})
     }
         
     })

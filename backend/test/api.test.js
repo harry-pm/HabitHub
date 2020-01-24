@@ -146,7 +146,7 @@ describe('API Routes', function() {
             password: "user"
           })
           .end(function(err, res) {
-            res.should.have.status(500);
+            res.should.have.status(200);
             res.should.be.json; // jshint ignore:line
             res.body.should.be.a('object');
             res.body.should.have.property('success');
