@@ -73,14 +73,14 @@ app.post("/addUser", (req, res) => {
                 success: true
             })
         }).catch(err => {
-            res.send({
+            res.status(500).send({
                 success: false
             })
         })
     }
     else
     {
-        res.send({success:false})
+        res.status(500).send({success:false})
     }
         
     })
@@ -101,8 +101,10 @@ app.post("/addHabit/:id", (req, res) => {
 app.post("/updateHabits/:userId", (req, res) => {
     let userId = req.params.userId;
     let habits = req.body.habits;
+    console.log(req.body)
     updateHabit(userId, habits);
-    res.send(habits);
+    
+    res.send(req.body);
 })
 
 app.listen(PORT, function () {

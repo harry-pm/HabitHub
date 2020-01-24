@@ -76,15 +76,16 @@ const addHabit = (id, name, completed) => {
         streak : 0,
         lastCompleted : null
     })
+
     User.findById(id,(err,user)=>{
-        // if(err)
-        //     console.log(err)
         user.habits.push(habit)
         user.save((err,data) => {
             // if(err)
             //     console.log(err)
         })
     })
+    return habit;
+
 }
 
 const updateHabit = (userId, habits) => {

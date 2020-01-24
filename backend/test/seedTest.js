@@ -21,7 +21,7 @@ const usersData = [
         username: 'Lau Ran',
         password: 'bestMc',
         habits: [
-            {name:'exercise', streak: 7, completed:[true], lastCompleted: new Date("01/22/2020")}
+            {name:'exercise', streak: 7, completed:[true], lastCompleted: new Date("01/23/2020")}
         ]
     }
 ]
