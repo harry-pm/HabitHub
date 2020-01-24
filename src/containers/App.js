@@ -29,7 +29,6 @@ class App extends React.Component {
   getUsers = () =>{
     axios.get(apiUrl + '/readAllUsers').then((res, err) =>
       { 
-        console.log(res.data)
         //list of usernames and passwords
         this.verifyUser(
           this.state.login.username,
@@ -42,7 +41,6 @@ class App extends React.Component {
 
   getHabits = (id) => {
     axios.get(apiUrl + '/readUserHabits/' + id).then((res,err) =>{  
-      console.log("Get habits")
       this.setState({userHabits: res.data})}
     )
   }
@@ -77,9 +75,6 @@ class App extends React.Component {
   verifyUser = (username, password, users) => {
       users.map(user => {
       if (user.username === username && user.password === password) {
-        console.log(user.username, user.password)
-        console.log(username,password)
-        console.log("valid user")
         this.setState({currentUser : user})
         this.setState({ loggedIn: true })
         this.getHabits(user._id)
@@ -98,7 +93,7 @@ class App extends React.Component {
   saveHabits = () => {
     let userId = this.state.currentUser._id;
     let habits = this.state.userHabits;
-    console.log("app habits:",habits, userId)
+
     axios.post(apiUrl + "/updateHabits/" + userId, {habits:habits})
   }
   render () {

@@ -4,20 +4,11 @@ import List from '../components/List';
 import "../styles/Habits.css";
 
 export default class Habits extends Component {
-    componentDidMount() {
-        window.addEventListener("beforeunload", this.beforeunload.bind(this));
-    }
+    componentDidMount() {window.addEventListener("beforeunload", this.beforeunload.bind(this));}
 
-    componentWillUnmount() {
-        window.removeEventListener("beforeunload", this.beforeunload.bind(this))
-    }
+    componentWillUnmount() {window.removeEventListener("beforeunload", this.beforeunload.bind(this))}
 
-    beforeunload() {
-        this.props.saveHabits();
-    }
-
-    // function to assign streak
-
+    beforeunload() {this.props.saveHabits();}
     render() {
         return (
             <div className="habits">

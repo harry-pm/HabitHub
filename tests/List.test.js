@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import List from '../src/components/List';
-import { mount } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import { expect } from 'chai';
+import Habit from '../src/components/Habit'
           
 const dummyData = [
     {
@@ -26,18 +27,13 @@ const dummyData = [
     "lastCompleted": "2020-01-19T00:00:00.000Z"
   }];
 
-describe('List', () => {
-
-    it('renders without crashing', () => {
-      const div = document.createElement('div');
-      ReactDOM.render(<List />, div);
-      ReactDOM.unmountComponentAtNode(div);
-    });
-    
+const toggleCompleted = jest.fn();
+describe('List', () => {    
   // Checks if a list of habits is rendered in the 
-  it("Displays a list of habits", () => {
-    const wrapper = mount(<List />);
-    wrapper.setProps({ habits: dummyData });
-    expect(wrapper.find('.habit')).to.have.lengthOf(2);
+  it("Renders a list of  2 habits", () => {
+    const wrapper = shallow(<List 
+      habits={dummyData}
+      toggleCompleted={toggleCompleted}/>);
+      expect(wrapper.find('div').find(Habit)).to.have.lengthOf(2);
   });
 })

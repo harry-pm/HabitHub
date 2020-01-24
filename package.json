@@ -17,7 +17,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "jest --config=jest.config.json --watchAll",
+    "test": "jest --config=jest.config.json --testPathIgnorePatterns=backend/test --watchAll",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -47,6 +47,7 @@
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.15.1",
     "enzyme-to-json": "^3.4.3",
+    "jest": "^25.1.0",
     "react-router-dom": "^5.1.2"
   }
 }

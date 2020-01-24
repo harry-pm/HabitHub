@@ -4,7 +4,6 @@ import "../styles/Habits.css";
 export default class Habit extends Component {
 
     render() {
-        console.log(this.props.habit)
         return (
             <div className="flex-row">
             <p>{`${this.props.habit.name} ${this.props.habit.streak}`} <img src="/assets/fire.png" alt="streak logo" /></p>

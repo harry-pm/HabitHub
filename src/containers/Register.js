@@ -14,9 +14,7 @@ export default class Register extends Component {
 handleRegister = (e) => {
     e.preventDefault();
     axios.post(apiUrl + '/addUser', {username: this.state.username, password: this.state.password}).then((res, err) => {
-        console.log(res.data.success)    
-        this.setState({ ...this.state, registered : res.data.success})
-            
+        this.setState({ ...this.state, registered : res.data.success})  
     })
 }
 

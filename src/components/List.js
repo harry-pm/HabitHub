@@ -5,12 +5,10 @@ export default function List(props) {
     return (
         <div className="habitsList">
          {props.habits.length > 0 && props.habits.map((habit, id) => (
-            <div key={id} >
-                <Habit 
+                <Habit key={id}
                 habit={habit}
                 toggleCompleted={props.toggleHabitCompleted}
-                />
-            </div>)  
+                />)  
             )}
         </div>
     )
