@@ -30,7 +30,7 @@ app.get('/seed', (req, res) => {
 });
 
 app.get('/seedTest', (req, res) => {
-    seedDataTest();
+    // seedDataTest();
     res.send("Test data seeded.");
 });
 
