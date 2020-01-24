@@ -184,32 +184,30 @@ describe('API Routes', function() {
       //   it('should update a habit for a specifc user', function(done) {
       //     //Lau Ran
       //     chai.request(server)
-      //     .post('/addHabit/5e2a3831a7abf3044c2beaaa')
+      //     .post('/updateHabits/5e2a3831a7abf3044c2beaaa')
       //     .send({
       //      habits: [
-      //       {_id: "5e2a3831a7abf3044c2beaa9", name:'exercise', streak: 0, completed:[false], lastCompleted: new Date("01/10/2020")}
-      //   ]
+      //       {_id: "5e2a3831a7abf3044c2beaa9", name:'exercise', streak: 0, completed:[false], lastCompleted: new Date("01/10/2020")}]
       //   })
       //     .end(function(err, res) {
-      //       console.log(res.body)
       //       res.should.have.status(200);
       //       res.should.be.json;
       //       res.body.should.be.a('array');
-      //       res.body.should.have.property('name');
-      //       res.body.name.should.equal('addHabit');
-      //       res.body.should.have.property('completed');
-      //       res.body.completed.should.be.a('array')
-      //       res.body.completed[0].should.equal(false);
-      //       res.body.should.have.property('streak');
-      //       res.body.streak.should.equal(0);
-      //       res.body.should.have.property('lastCompleted');
-      //       res.body.lastCompleted.should.equal('2020-01-10T00:00:00.000Z');
+      //       res.body[0].should.have.property('name');
+      //       res.body[0].name.should.equal('exercise');
+      //       res.body[0].should.have.property('completed');
+      //       res.body[0].completed.should.be.a('array')
+      //       res.body[0].completed[0].should.equal(false);
+      //       res.body[0].should.have.property('streak');
+      //       res.body[0].streak.should.equal(0);
+      //       res.body[0].should.have.property('lastCompleted');
+      //       res.body[0].lastCompleted.should.equal('2020-01-10T00:00:00.000Z');
       //       done();
       //     })
          
           
       //   })
-      // })
+      })
           
       
 

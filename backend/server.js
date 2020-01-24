@@ -101,10 +101,8 @@ app.post("/addHabit/:id", (req, res) => {
 app.post("/updateHabits/:userId", (req, res) => {
     let userId = req.params.userId;
     let habits = req.body.habits;
-    console.log(req.body)
     updateHabit(userId, habits);
-    
-    res.send(req.body);
+    res.send(req.body.habits);
 })
 
 app.listen(PORT, function () {
