@@ -48,8 +48,10 @@
 ``` cd HabitHub/backend ```
 
 13. Comment out the following lines in server.js
-``` const seedDataTest = require("./test/seedTest.js")
-seedDataTest() ```
+```
+const seedDataTest = require("./test/seedTest.js")
+seedDataTest()
+```
 
 14. Run backend server:
 ``` node server.js ```
