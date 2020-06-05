@@ -59,7 +59,7 @@ seedDataTest()
 16. Run backend server:
 ``` node server.js ```
 
-17.  Seed the database by navigating to http://localhost:4000/test on your web browser
+17.  Seed the database by navigating to http://localhost:4000/seed on your web browser
 
 18. Enjoy at localhost:3000 on your web browser :)
 
